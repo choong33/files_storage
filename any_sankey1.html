@@ -1,0 +1,66 @@
+<div id="anychart-embed-samples-bct-sankey-diagram-02" class="anychart-embed anychart-embed-samples-bct-sankey-diagram-02">
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-sankey.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div id="ac_style_samples-bct-sankey-diagram-02" style="display:none;">
+html, body, #container {
+    width: 180%;
+    height: 150%;
+    margin: 0;
+    padding: 0;
+}
+</div>
+<script>(function(){
+function ac_add_to_head(el){
+	var head = document.getElementsByTagName('head')[0];
+	head.insertBefore(el,head.firstChild);
+}
+function ac_add_link(url){
+	var el = document.createElement('link');
+	el.rel='stylesheet';el.type='text/css';el.media='all';el.href=url;
+	ac_add_to_head(el);
+}
+function ac_add_style(css){
+	var ac_style = document.createElement('style');
+	if (ac_style.styleSheet) ac_style.styleSheet.cssText = css;
+	else ac_style.appendChild(document.createTextNode(css));
+	ac_add_to_head(ac_style);
+}
+ac_add_link('https://cdn.anychart.com/releases/8.10.0/css/anychart-ui.min.css?hcode=a0c21fc77e1449cc86299c5faa067dc4');
+ac_add_style(document.getElementById("ac_style_samples-bct-sankey-diagram-02").innerHTML);
+ac_add_style(".anychart-embed-samples-bct-sankey-diagram-02{width:600px;height:450px;}");
+})();</script>
+<div id="container"></div>
+<script>
+
+anychart.onDocumentReady(function () {
+
+    // create data
+    var chartData = "https://raw.githubusercontent.com/choong33/files_storage/main/sankey3.csv"
+    d3.csv(chartData).then(function(datapoints){
+    console.log(datapoints)
+    var data = datapoints
+
+    // create a chart and set the data
+    var chart = anychart.sankey(data);
+
+    // set the width of nodes
+    chart.nodeWidth("30%");
+
+    // set the chart title
+    chart.title("Sankey Diagram: FHC Completed");
+
+    // set the container id
+    chart.container("container");
+
+    // initiate drawing the chart
+    chart.draw();
+
+    });
+});
+</script>
+</div>
