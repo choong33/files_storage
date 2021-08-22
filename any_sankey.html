@@ -1,0 +1,85 @@
+<div id="anychart-embed-samples-bct-sankey-diagram-02" class="anychart-embed anychart-embed-samples-bct-sankey-diagram-02">
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-sankey.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div id="ac_style_samples-bct-sankey-diagram-02" style="display:none;">
+html, body, #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+</div>
+<script>(function(){
+function ac_add_to_head(el){
+	var head = document.getElementsByTagName('head')[0];
+	head.insertBefore(el,head.firstChild);
+}
+function ac_add_link(url){
+	var el = document.createElement('link');
+	el.rel='stylesheet';el.type='text/css';el.media='all';el.href=url;
+	ac_add_to_head(el);
+}
+function ac_add_style(css){
+	var ac_style = document.createElement('style');
+	if (ac_style.styleSheet) ac_style.styleSheet.cssText = css;
+	else ac_style.appendChild(document.createTextNode(css));
+	ac_add_to_head(ac_style);
+}
+ac_add_link('https://cdn.anychart.com/releases/8.10.0/css/anychart-ui.min.css?hcode=a0c21fc77e1449cc86299c5faa067dc4');
+ac_add_style(document.getElementById("ac_style_samples-bct-sankey-diagram-02").innerHTML);
+ac_add_style(".anychart-embed-samples-bct-sankey-diagram-02{width:600px;height:450px;}");
+})();</script>
+<div id="container"></div>
+<script>
+anychart.onDocumentReady(function () {
+
+    // create data
+    var data = [
+      {from: "Canada",  to: "France",  weight: 2230000},
+      {from: "Canada",  to: "Germany", weight: 1990000},
+      {from: "Canada",  to: "Italy",   weight: 1180000},
+      {from: "Canada",  to: "Spain",   weight:  990000},
+      {from: "USA",     to: "China",   weight: 1250000},
+      {from: "USA",     to: "France",  weight:  950000},
+      {from: "USA",     to: "Germany", weight: 2020000},
+      {from: "USA",     to: "Spain",   weight: 1110000},
+      {from: "France",  to: "China",   weight: 1100000},
+      {from: "France",  to: "Japan",   weight: 1050000},
+      {from: "France",  to: "India",   weight: 1030000},
+      {from: "Germany", to: "China",   weight: 2150000},
+      {from: "Germany", to: "Japan",   weight:  660000},
+      {from: "Germany", to: "India",   weight: 1200000},
+      {from: "Italy",   to: "China",   weight: 1180000},
+      {from: "Spain",   to: "China",   weight: 1120000},
+      {from: "Spain",   to: "Japan",   weight:  980000}
+    ];
+
+    var chartData = "https://raw.githubusercontent.com/choong33/files_storage/main/sankey3.csv"
+    d3.csv(chartData).then(function(datapoints){
+    console.log(datapoints)
+    var data = datapoints
+    });
+
+
+    // create a chart and set the data
+    var chart = anychart.sankey(data);
+
+    // set the width of nodes
+    chart.nodeWidth("30%");
+
+    // set the chart title
+    chart.title("Sankey Diagram: Data");
+
+    // set the container id
+    chart.container("container");
+
+    // initiate drawing the chart
+    chart.draw();
+});
+</script>
+</div>
